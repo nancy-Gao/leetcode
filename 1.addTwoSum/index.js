@@ -79,3 +79,16 @@ var twoSum = function(nums, target) {
         }
     }
 };
+// 运行时间 88 ms
+// 内存消耗 40.1 MB
+// 尾递归方式
+"use strict";
+var twoSum = function(nums,target, i=0, maps={}) {
+    if(maps[target - nums[i]] !== undefined) {
+        return [i, maps[target - nums[i]]];
+    }
+    if(i >= nums.length - 1) {
+        return undefined;
+    }
+    return twoSum(nums, target, i+1, ((maps[nums[i]] = i) || true) && maps);
+}
