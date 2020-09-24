@@ -1,0 +1,16 @@
+# cache
+.DS_Store
+*~
+.cache
+# packages
+node_modules/
+package-lock.json
+# editor
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history/
