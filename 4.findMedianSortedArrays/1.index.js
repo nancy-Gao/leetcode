@@ -66,6 +66,7 @@ var selectionSort = function(arr) {
 var insertionSort = function(arr) {
     const resultArr = arr[0];
     for(let i=1; i < arr.length; i++) { // 未排好序的元素位置
+        
     }
 }
 
