@@ -66,22 +66,6 @@ var selectionSort = function(arr) {
 var insertionSort = function(arr) {
     const resultArr = arr[0];
     for(let i=1; i < arr.length; i++) { // 未排好序的元素位置
-        const isInsert = false;
-        if(arr[i] < resultArr[0]) {
-            resultArr = resultArr.concat(resultArr.slice(0,1), [arr[i]], resultArr.slice(1));
-            continue;
-        }
-        if(arr[i] < resultArr[resultArr.length - 1]) {
-            resultArr.push(arr[i]);
-            continue;
-        }
-        for(let j=0; j < resultArr.length - 1; j++) {
-            if(arr[i] < resultArr[j+1] && arr[i] >= resultArr[j]) {
-                isInsert = true
-                resultArr = resultArr.concat(resultArr.slice(0, j + 1), [arr[i]], resultArr.slice(j + 1))
-            }
-            
-        }
     }
 }
 
