@@ -66,9 +66,17 @@ var selectionSort = function(arr) {
 var insertionSort = function(arr) {
     const resultArr = arr[0];
     for(let i=1; i < arr.length; i++) { // 未排好序的元素位置
+        resultArr.push(arr[i]); // 先推入
+        for(let j= resultArr.length - 2;j>=0;j--) {
+            if(resultArr[j] > resultArr[j+1]) {
+                swapArrElement(resultArr[j], arr[j+1]); // 位置置换
+            } else {
+                break
+            }
+        } 
 
-        
     }
+    return resultArr;
 }
 
-console.log(findMedianSortedArrays([1,3],[2,5]));
+console.log(findMedianSortedArrays([1,3],[5,9]));
