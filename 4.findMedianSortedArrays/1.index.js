@@ -4,7 +4,7 @@
  * @return {number}
  */
  var findMedianSortedArrays = function(nums1, nums2) {
-    const sortedArray = selectionSort(nums1.concat(nums2));
+    const sortedArray = mergeSortedArray(nums1, nums2);
     const len = sortedArray.length
     if(len%2 ==0)  {
         return (sortedArray[len/2 -1] + sortedArray[len/2])/2
@@ -78,5 +78,44 @@ var insertionSort = function(arr) {
     }
     return resultArr;
 }
+// 递归方法 && 遍历方法
+var mergesort = function(arr) {
+    return recursionMergeSort(arr.slice(0, arr.length/2), arr.slice(arr.length/2));
+}
+var recursionMergeSort = function(leftArr, rightArr) {
+    if(leftArr.length > 1 && rightArr.length > 1) {
+        // 拆分两个数组
+        const arr1 = recursionMergeSort(leftArr.slice(0, leftArr.length/2), leftArr.slice(leftArr.length/2))
+        const arr2 = recursionMergeSort(rightArr.slice(0, rightArr.length/2), rightArr.slice(rightArr.length/2))
+        // 合并两个数组
+        const res = mergeSortedArray(arr1, arr2);
+        return res;
+    }
+    const res = mergeSortedArray(leftArr, rightArr);
+    return res;
+}
+var mergeSortedArray = function(arr1, arr2) {
+    let res = [];
+    let i=0,j=0;
+    for(;i<arr1.length&&j<arr2.length;) {
+        if(arr1[i] < arr2[j]) {
+            res.push(arr1[i]);
+            i++;
+        } else {
+            res.push(arr2[j]);
+            j++;
+        }
+    }
+    if(i >= arr1.length) {
+        res = res.concat(arr2.slice(j))
+    }
+    if(j >= arr2.length) {
+        res = res.concat(arr1.slice(i))
+    }
+    return res;
+}
+var traversalMergesSort = function(arr) {
 
-console.log(findMedianSortedArrays([1,3],[5,9]));
+}
+// console.log(findMedianSortedArrays([],[2]));
+console.log(mergesort([0,2,7,4,56,45,32,4,5,23]))
