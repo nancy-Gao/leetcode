@@ -83,7 +83,7 @@ var mergesort = function(arr) {
     return recursionMergeSort(arr.slice(0, arr.length/2), arr.slice(arr.length/2));
 }
 var recursionMergeSort = function(leftArr, rightArr) {
-    if(leftArr.length > 1 && rightArr.length > 1) {
+    if(leftArr.length > 1 || rightArr.length > 1) {
         // 拆分两个数组
         const arr1 = recursionMergeSort(leftArr.slice(0, leftArr.length/2), leftArr.slice(leftArr.length/2))
         const arr2 = recursionMergeSort(rightArr.slice(0, rightArr.length/2), rightArr.slice(rightArr.length/2))
@@ -118,4 +118,4 @@ var traversalMergesSort = function(arr) {
 
 }
 // console.log(findMedianSortedArrays([],[2]));
-console.log(mergesort([0,2,7,4,56,45,32,4,5,23]))
+console.log(mergesort([0,2,7,4,56,45,32,5,4]))
