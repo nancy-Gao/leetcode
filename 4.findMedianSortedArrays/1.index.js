@@ -115,7 +115,8 @@ var mergeSortedArray = function(arr1, arr2) {
     return res;
 }
 var traversalMergesSort = function(arr) {
-
+    
+    
 }
 // console.log(findMedianSortedArrays([],[2]));
 console.log(mergesort([0,2,7,4,56,45,32,5,4]))
