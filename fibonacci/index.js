@@ -1,6 +1,19 @@
-// 动态规划内容 时间复杂度 o(n) 空间复杂度 o(1) 
+// 最简单就是递归算出值, 但是时间复杂度较高o(2^n)
+var fibre = function(n) {
+    if(n ==1 || n ==2) return 1;
+    return fibre(n -1) + fibre(n-2);
+}
+// 带备忘录的递归,自顶向下
+var memo = [];
+var fibrem = function (n) {
+    if(n ==1 || n== 2) return 1;
+    if(memo[n]) return memo[n];
+    memo[n] = fibrem(n-1) + fibrem(n-2);
+    return memo[n];
+}
+// 动态规划内容,自下向上 时间复杂度 o(n) 空间复杂度 o(1) 
 var fib = function (n) {
-    return matrixQuick(n);
+    return fibrem(n);
 }
 var dp = function (n) {
     if(n<2) return n;
@@ -44,4 +57,4 @@ var multiplyMatrix = function(m1, m2) {
     }
     return result;
 }
-console.log(fib(4))
+console.log(fib(20))
