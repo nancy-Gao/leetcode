@@ -29,9 +29,36 @@ var reverseDr = function(head) {
     head.next.next = head;
     head.next = null; // 初始化，等待下一个递归赋值
     return newHead; // 终止条件的head
-    
 }
+var reverseMiddle = function(head, left, right) {
+    // 建立一个虚拟头节点，避免head也要参与反转
+    let newHead = new ListNode(null, head);
+    // 获得pre节点 left前一个节点
+    let pre = newHead;
+    for(let i =0 ;i<left;i++) {
+        pre = pre.next;
+    }
+    // 获得rightNode节点 在pre节点往前走 right-left+1
+    const step = right - left+1;
+    let rightNode = pre;
+    for(let i=0; i < step;i++) {
+        rightNode = rightNode.next;
+    }
+    // 获取LeftNode right+1节点
+    let leftNode = pre.next;
+    let rightNext = rightNode.next;
+    // 切断链接
+    pre.next = null
+    rightNode.next = null
+    // 反转链接
+    reverseList(leftNode);
+    // 拼接链表
+    pre.next = rightNode;
+    leftNode.next = rightNext;
+    return newHead.next;
+}
+// 反转链接进阶
 const b = new ListNode(3, null);
 const a = new ListNode(2, b);
 const list = new ListNode(1, a);
-console.log(reverseList(list))
+console.log(reverseMiddle(list, 1,2))
