@@ -23,14 +23,11 @@ var isCircleListByDouble = function(head) {
     let newHead = new ListNode(null, head);
     let slowNode = newHead;
     let fastNode = newHead.next;
-    let length = 0;
     while(slowNode != fastNode) {
         if(fastNode == null || fastNode.next === null) return false;
         slowNode =  slowNode.next;
         fastNode = fastNode.next.next;
-        length ++
     }
-    console.log(length)
     return true;
 }
 
@@ -71,6 +68,11 @@ var middleNode = function(head) {
     return leftNode;
 }
 // 判断环的长度
+
+var lengthNode = function(head) {
+
+}
+
 
 
 const c = new ListNode(4, null);
